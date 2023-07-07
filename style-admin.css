@@ -1,0 +1,28 @@
+/*-------------------------------------------
+カスタムフィールド
+-------------------------------------------*/
+.postbox .postbox-header{
+    background: #ccc;
+    border-bottom: 1px solid #999;
+    margin-bottom: 15px;
+}
+
+.postbox .inside label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.postbox .inside input[type="text"],
+.postbox .inside input[type="email"],
+.postbox .inside textarea {
+    background: #f6f5f4;
+    border: 1px solid #eee;
+    padding: 5px 15px;
+    margin-bottom: 15px;
+    width: 50%;
+}
+
+.postbox .inside textarea {
+    height: 300px;
+}

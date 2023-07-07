@@ -16,7 +16,7 @@
             <p><?php bloginfo( 'description' ); ?></p>
         </section>
         <section id="concept" class="wrapper wrapper-col2 wrapper-col2-reverse bg-cream">
-            <div class="col2-item sp-hide">
+            <div class="col2-item col2-item-img sp-hide">
                 <img src="<?php echo get_post_meta( $post->ID, 'concept_img', true ); ?>" alt="CONCEPT-IMG">
             </div>
             <div class="col2-item">

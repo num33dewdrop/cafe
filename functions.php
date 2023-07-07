@@ -178,41 +178,41 @@ function add_custom_inputbox() {
 	//第三引数：メタボックスの中に出力される関数名
 	//第四引数：管理画面に表示するカスタムフィールドの場所（postなら投稿、pageなら固定ページ）
 	//第五引数：配置される順序
-	add_meta_box( 'concept_id', 'CONCEPT入力欄', 'custom_area', 'page', 'normal' );
-	add_meta_box( 'top_banner_id', 'TOP-BANNER画像URL入力欄', 'custom_area2', 'page', 'normal' );
+	add_meta_box( 'top_banner_id', 'TOP-BANNER画像URL入力欄', 'custom_area1', 'page', 'normal' );
+	add_meta_box( 'concept_id', 'CONCEPT入力欄', 'custom_area2', 'page', 'normal' );
 	add_meta_box( 'contact_id', 'CONTACT入力欄', 'custom_area3', 'page', 'normal' );
 }
 
 /*管理画面に表示される内容*/
-/*ABOUT*/
-function custom_area() {
+/*TOP-BANNER*/
+function custom_area1() {
 	global $post;
-	//get_post_meta() 第二引数には、データベースへ保存するときのkeyを指定。適当でいいが、今回は「concept_img」というkeyで、入力した情報をDBへ保存、「concept_img」というkeyで情報を取得することができる。
-	echo 'CONCEPT-IMG-URL<br><input type="text" name="concept_img" value="' . get_post_meta( $post->ID, 'concept_img', true ) . '"><br>';
-	echo 'CONCEPT-TITLE<br><input type="text" name="concept_title" value="' . get_post_meta( $post->ID, 'concept_title', true ) . '"><br>';
-	echo 'CONCEPT-MSG<br><textarea cols="50" rows="5" name="concept_msg">' . get_post_meta( $post->ID, 'concept_msg', true ) . '</textarea><br>';
+	echo '<label for="pc_top_banner">TOP-MOVIE-URL</label><input id="pc_top_banner" type="text" name="pc_top_banner" value="' . get_post_meta( $post->ID, 'pc_top_banner', true ) . '">';
+	echo '<label for="sp_top_banner">SP-IMG-URL</label><input id="sp_top_banner" type="text" name="sp_top_banner" value="' . get_post_meta( $post->ID, 'sp_top_banner', true ) . '">';
+	echo '<label for="sp_min_top_banner">SP-MIN-IMG-URL</label><input id="sp_min_top_banner" type="text" name="sp_min_top_banner" value="' . get_post_meta( $post->ID, 'sp_min_top_banner', true ) . '">';
 }
 
-/*TOP-BANNER*/
+/*ABOUT*/
 function custom_area2() {
 	global $post;
-	echo 'TOP-MOVIE-URL<br><input type="text" name="pc_top_banner" value="' . get_post_meta( $post->ID, 'pc_top_banner', true ) . '"><br>';
-	echo 'SP URL<br><input type="text" name="sp_top_banner" value="' . get_post_meta( $post->ID, 'sp_top_banner', true ) . '"><br>';
-	echo 'SP-MIN URL<br><input type="text" name="sp_min_top_banner" value="' . get_post_meta( $post->ID, 'sp_min_top_banner', true ) . '"><br>';
+	//get_post_meta() 第二引数には、データベースへ保存するときのkeyを指定。適当でいいが、今回は「concept_img」というkeyで、入力した情報をDBへ保存、「concept_img」というkeyで情報を取得することができる。
+	echo '<label for="concept_img">CONCEPT-IMG-URL</label><input id="concept_img" type="text" name="concept_img" value="' . get_post_meta( $post->ID, 'concept_img', true ) . '">';
+	echo '<label for="concept_title">CONCEPT-TITLE</label><input id="concept_title" type="text" name="concept_title" value="' . get_post_meta( $post->ID, 'concept_title', true ) . '">';
+	echo '<label for="concept_msg">CONCEPT-MSG</label><textarea id="concept_msg" cols="50" rows="5" name="concept_msg">' . get_post_meta( $post->ID, 'concept_msg', true ) . '</textarea>';
 }
 
 /*CONTACT*/
 function custom_area3() {
 	global $post;
 	//get_post_meta() 第二引数には、データベースへ保存するときのkeyを指定。適当でいいが、今回は「about」というkeyで、入力した情報をDBへ保存、「about」というkeyで情報を取得することができる。
-	echo 'SHOP-NAME<br><input type="text" name="my_name" value="' . get_post_meta( $post->ID, 'my_name', true ) . '"><br>';
-	echo 'ADDRESS<br><input type="text" name="my_address" value="' . get_post_meta( $post->ID, 'my_address', true ) . '"><br>';
-	echo 'TEL<br><input type="text" name="my_tel" value="' . get_post_meta( $post->ID, 'my_tel', true ) . '"><br>';
-	echo 'URL<br><input type="text" name="my_url" value="' . get_post_meta( $post->ID, 'my_url', true ) . '"><br>';
-	echo 'EMAIL<br><input type="email" name="my_email" value="' . get_post_meta( $post->ID, 'my_email', true ) . '"><br>';
-	echo 'BUSINESS-HOURS<br><input type="text" name="business_hours" value="' . get_post_meta( $post->ID, 'business_hours', true ) . '"><br>';
-	echo 'CLOSING-DAY<br><input type="text" name="closing_day" value="' . get_post_meta( $post->ID, 'closing_day', true ) . '"><br>';
-	echo 'CONTACT-MAP<br><textarea cols="50" rows="5" name="map">' . get_post_meta( $post->ID, 'map', true ) . '</textarea><br>';
+	echo '<label for="my_name">SHOP-NAME</label><input id="my_name" type="text" name="my_name" value="' . get_post_meta( $post->ID, 'my_name', true ) . '">';
+	echo '<label for="my_address">ADDRESS</label><input id="my_address" type="text" name="my_address" value="' . get_post_meta( $post->ID, 'my_address', true ) . '">';
+	echo '<label for="my_tel">TEL</label><input id="my_tel" type="text" name="my_tel" value="' . get_post_meta( $post->ID, 'my_tel', true ) . '">';
+	echo '<label for="my_url">URL</label><input id="my_url" type="text" name="my_url" value="' . get_post_meta( $post->ID, 'my_url', true ) . '">';
+	echo '<label for="my_email">EMAIL</label><input id="my_email" type="email" name="my_email" value="' . get_post_meta( $post->ID, 'my_email', true ) . '">';
+	echo '<label for="business_hours">BUSINESS-HOURS</label><input id="business_hours" type="text" name="business_hours" value="' . get_post_meta( $post->ID, 'business_hours', true ) . '">';
+	echo '<label for="closing_day">CLOSING-DAY</label><input id="closing_day" type="text" name="closing_day" value="' . get_post_meta( $post->ID, 'closing_day', true ) . '">';
+	echo '<label for="map">CONTACT-MAP</label><textarea id="map" cols="50" rows="5" name="map">' . get_post_meta( $post->ID, 'map', true ) . '</textarea>';
 }
 
 //保存用処理関数
